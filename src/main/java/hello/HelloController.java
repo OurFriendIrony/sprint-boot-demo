@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
+@RequestMapping("/brands/v1")
 public class HelloController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -17,5 +18,4 @@ public class HelloController {
     public String user(@PathVariable("userid") String userid) {
         return String.format("Greetings %s from Spring Boot!", userid);
     }
-
 }
