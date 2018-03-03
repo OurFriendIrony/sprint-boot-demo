@@ -18,6 +18,8 @@ repositories {
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
 
+    testCompile("org.apache.commons:commons-lang3:3.7")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
     testCompile("junit:junit")
 }
 
@@ -25,21 +27,21 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 project.ext {
-  lib     = 'gs-spring-boot'
-  version = '0.0.1'
-  jar     = 'build/libs/'+lib + '-' + version + '.jar'
+    lib = 'gs-spring-boot'
+    version = '0.0.1'
+    jar = 'build/libs/' + lib + '-' + version + '.jar'
 }
 
 jar {
     baseName = project.ext.lib
-    version  = project.ext.version
+    version = project.ext.version
 }
 
-task deployLocal(dependsOn:build) {
+task deployLocal(dependsOn: build) {
     doLast() {
         javaexec {
-            main="-jar";
-            args = [ jar ]
+            main = "-jar"
+            args = [jar]
         }
     }
 }

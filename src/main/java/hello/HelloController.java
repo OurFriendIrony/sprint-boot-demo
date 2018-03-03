@@ -8,15 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class HelloController {
 
-    @RequestMapping(value="/", method= RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
         return "Greetings from Spring Boot!";
     }
 
-
-    @RequestMapping(value="/user/{userid}", method= RequestMethod.GET)
+    @RequestMapping(value = "/user/{userid}", method = RequestMethod.GET)
     public String user(@PathVariable("userid") String userid) {
-        return String.format("Greetings %s from Spring Boot!",userid);
+        return String.format("Greetings %s from Spring Boot!", userid);
     }
 
 }
