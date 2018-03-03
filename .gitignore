@@ -4,6 +4,9 @@
 # gradle
 .gradle/
 
+# idea/intellij
+.idea/
+
 # build
 build/
 out/
