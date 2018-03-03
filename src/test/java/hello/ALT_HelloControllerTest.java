@@ -27,6 +27,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class ALT_HelloControllerTest {
 
+    private final String baseUrl = "/greetings/v1";
+
     @LocalServerPort
     private int port;
 
@@ -36,21 +38,21 @@ public class ALT_HelloControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        this.base = new URL("http://localhost:" + port + "/brands/v1/");
+        this.base = new URL("http://localhost:" + port + baseUrl);
     }
 
     @Test
-    public void getHello() throws Exception {
-        ResponseEntity<String> response = template.getForEntity(base.toString(), String.class);
+    public void getHello() {
+        ResponseEntity<String> response = template.getForEntity(base.toString() + "/", String.class);
         assertTrue(response.getStatusCode().is2xxSuccessful());
         assertThat(response.getBody(), equalTo("Greetings from Spring Boot!"));
     }
 
     @Test
-    public void getUserHello() throws Exception {
-        String demoName = RandomStringUtils.randomAlphanumeric(10);
-        ResponseEntity<String> response = template.getForEntity(base.toString()+"user/"+demoName, String.class);
+    public void getUserHello() {
+        String name = RandomStringUtils.randomAlphanumeric(10);
+        ResponseEntity<String> response = template.getForEntity(base.toString() + "/user/" + name, String.class);
         assertTrue(response.getStatusCode().is2xxSuccessful());
-        assertThat(response.getBody(), equalTo(String.format("Greetings %s from Spring Boot!", demoName)));
+        assertThat(response.getBody(), equalTo(String.format("Greetings %s from Spring Boot!", name)));
     }
 }

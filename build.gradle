@@ -30,7 +30,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 project.ext {
-    lib = 'gs-spring-boot'
+    lib = 'spring-boot-demo'
     version = '0.0.1'
     jar = 'build/libs/' + lib + '-' + version + '.jar'
 }
