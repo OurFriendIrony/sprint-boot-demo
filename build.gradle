@@ -1,6 +1,5 @@
 buildscript {
     repositories {
-//        mavenCentral()
         jcenter()
     }
     dependencies {
@@ -13,34 +12,35 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
-jar {
-    baseName = 'gs-spring-boot'
-    version =  '0.1.0'
-}
-
 repositories {
-//    mavenCentral()
     jcenter()
 }
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
 
     testCompile("junit:junit")
 }
 
-apply plugin: 'java'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-repositories {
-    jcenter()
+project.ext {
+  lib     = 'gs-spring-boot'
+  version = '0.0.1'
+  jar     = 'build/libs/'+lib + '-' + version + '.jar'
 }
 
-dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.25'
+jar {
+    baseName = project.ext.lib
+    version  = project.ext.version
+}
 
-    testCompile 'junit:junit:4.12'
+task deployLocal(dependsOn:build) {
+    doLast() {
+        javaexec {
+            main="-jar";
+            args = [ jar ]
+        }
+    }
 }
 
