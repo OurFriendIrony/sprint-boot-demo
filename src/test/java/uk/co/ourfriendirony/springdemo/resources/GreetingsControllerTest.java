@@ -1,4 +1,4 @@
-package hello.resources;
+package uk.co.ourfriendirony.springdemo.resources;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;

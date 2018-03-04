@@ -1,4 +1,4 @@
-package hello.config;
+package uk.co.ourfriendirony.springdemo.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -14,9 +14,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/",
             "/home",
             "/greetings/v1/**",
-            "/metrics",
-            "/health",
-            "/shutdown"
+            "/swagger-ui.html"
     };
 
     @Override
