@@ -10,4 +10,5 @@
 # build
 build/
 out/
+logs/
 
