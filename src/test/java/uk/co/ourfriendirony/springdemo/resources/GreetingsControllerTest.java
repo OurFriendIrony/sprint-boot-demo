@@ -26,10 +26,10 @@ public class GreetingsControllerTest {
     private MockMvc mvc;
 
     @Test
-    public void getHello() throws Exception {
+    public void getIndexMessage() throws Exception {
         mvc.perform(MockMvcRequestBuilders
                 .get(baseUrl + "/")
-                .accept(MediaType.APPLICATION_JSON)
+                .accept(MediaType.TEXT_PLAIN)
         ).andExpect(status()
                 .isOk()
         ).andExpect(content()
@@ -38,11 +38,11 @@ public class GreetingsControllerTest {
     }
 
     @Test
-    public void getUserHello() throws Exception {
+    public void getUserMessage() throws Exception {
         String name = RandomStringUtils.randomAlphanumeric(10);
         mvc.perform(MockMvcRequestBuilders
-                .get(baseUrl + "/user/" + name)
-                .accept(MediaType.APPLICATION_JSON)
+                .get(baseUrl + "/" + name)
+                .accept(MediaType.TEXT_PLAIN)
         ).andExpect(status()
                 .isOk()
         ).andExpect(content()

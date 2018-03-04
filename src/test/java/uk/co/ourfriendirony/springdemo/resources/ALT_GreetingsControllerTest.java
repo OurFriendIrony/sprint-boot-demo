@@ -42,16 +42,16 @@ public class ALT_GreetingsControllerTest {
     }
 
     @Test
-    public void getHello() {
+    public void getIndexMessage() {
         ResponseEntity<String> response = template.getForEntity(base.toString() + "/", String.class);
         assertTrue(response.getStatusCode().is2xxSuccessful());
         assertThat(response.getBody(), equalTo("Greetings from Spring Boot!"));
     }
 
     @Test
-    public void getUserHello() {
+    public void getUserMessage() {
         String name = RandomStringUtils.randomAlphanumeric(10);
-        ResponseEntity<String> response = template.getForEntity(base.toString() + "/user/" + name, String.class);
+        ResponseEntity<String> response = template.getForEntity(base.toString() + "/" + name, String.class);
         assertTrue(response.getStatusCode().is2xxSuccessful());
         assertThat(response.getBody(), equalTo(String.format("Greetings %s from Spring Boot!", name)));
     }
