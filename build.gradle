@@ -43,6 +43,10 @@ project.ext {
     jar = 'build/libs/' + lib + '-' + version + '.jar'
 }
 
+test {
+    testLogging.showStandardStreams = false
+}
+
 jar {
     baseName = project.ext.lib
     version = project.ext.version

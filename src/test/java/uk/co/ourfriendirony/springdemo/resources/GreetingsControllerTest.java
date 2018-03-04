@@ -27,16 +27,26 @@ public class GreetingsControllerTest {
 
     @Test
     public void getHello() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get(baseUrl+"/").accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Greetings from Spring Boot!")));
+        mvc.perform(MockMvcRequestBuilders
+                .get(baseUrl + "/")
+                .accept(MediaType.APPLICATION_JSON)
+        ).andExpect(status()
+                .isOk()
+        ).andExpect(content()
+                .string(equalTo("Greetings from Spring Boot!"))
+        );
     }
 
     @Test
     public void getUserHello() throws Exception {
         String name = RandomStringUtils.randomAlphanumeric(10);
-        mvc.perform(MockMvcRequestBuilders.get(baseUrl+"/user/" + name).accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().string(equalTo(String.format("Greetings %s from Spring Boot!", name))));
+        mvc.perform(MockMvcRequestBuilders
+                .get(baseUrl + "/user/" + name)
+                .accept(MediaType.APPLICATION_JSON)
+        ).andExpect(status()
+                .isOk()
+        ).andExpect(content()
+                .string(equalTo(String.format("Greetings %s from Spring Boot!", name)))
+        );
     }
 }
