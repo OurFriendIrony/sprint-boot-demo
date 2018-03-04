@@ -48,7 +48,9 @@ jar {
     version = project.ext.version
 }
 
-task deployLocal() {
+task deployAndTest(dependsOn: ['test', 'deployLocal']) {}
+
+task deployLocal(dependsOn: ['assemble']) {
     doLast() {
         javaexec {
             main = "-jar"
