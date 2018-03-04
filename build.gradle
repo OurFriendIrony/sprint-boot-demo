@@ -24,7 +24,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     // Security (and automatically locks all endpoints down)
     compile("org.springframework.boot:spring-boot-starter-security")
-
+    // Swagger Api Def
     compile("io.springfox:springfox-swagger2:2.6.1")
     compile("io.springfox:springfox-swagger-ui:2.6.1")
 
@@ -48,7 +48,7 @@ jar {
     version = project.ext.version
 }
 
-task deployLocal(dependsOn: build) {
+task deployLocal() {
     doLast() {
         javaexec {
             main = "-jar"
