@@ -1,4 +1,8 @@
 # allows /shutdown endpoint to be triggered
-endpoints.shutdown.enabled=true
+endpoints:
+  shutdown:
+    enabled: true
 # disables authentication for reaching /health, /metrics, etc
-management.security.enabled=false
+management:
+  security:
+    enabled: false

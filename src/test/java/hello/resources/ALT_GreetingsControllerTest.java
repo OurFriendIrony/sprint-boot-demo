@@ -1,4 +1,4 @@
-package hello;
+package hello.resources;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ALT_HelloControllerTest {
+public class ALT_GreetingsControllerTest {
 
     private final String baseUrl = "/greetings/v1";
 

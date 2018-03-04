@@ -1,4 +1,4 @@
-package hello;
+package hello.resources;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
 @RequestMapping("/greetings/v1")
-public class HelloController {
+public class GreetingsController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {

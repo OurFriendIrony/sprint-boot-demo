@@ -1,4 +1,4 @@
-package hello;
+package hello.resources;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class HelloControllerTest {
+public class GreetingsControllerTest {
 
     private final String baseUrl = "/greetings/v1";
 
