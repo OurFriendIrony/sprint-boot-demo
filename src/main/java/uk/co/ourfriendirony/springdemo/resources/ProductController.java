@@ -20,6 +20,6 @@ public class ProductController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
-        return new ResponseEntity<>(product, headers, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(product, headers, HttpStatus.CREATED);
     }
 }

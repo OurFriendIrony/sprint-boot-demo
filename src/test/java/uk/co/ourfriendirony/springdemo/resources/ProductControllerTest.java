@@ -1,5 +1,7 @@
 package uk.co.ourfriendirony.springdemo.resources;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,21 +24,31 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ProductControllerTest {
 
     private final String baseUrl = "/products/v1";
+    private ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
     private MockMvc mvc;
 
     @Test
     public void postProduct() throws Exception {
-        Product p = new Product();
-        p.setDescription("test");
-        p.setSku("skutest");
+        Product p = getProduct("mydesc","mysku");
 
         mvc.perform(MockMvcRequestBuilders
                 .post(baseUrl + "/productId")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(p.toString())
-        ).andExpect(status().is(202));
+                .content(pojoToString(p))
+        ).andExpect(status().is(201));
+    }
+
+    private String pojoToString(Product p) throws JsonProcessingException {
+        return mapper.writeValueAsString(p);
+    }
+
+    private Product getProduct(String desc, String sku) {
+        Product p = new Product();
+        p.setDescription(desc);
+        p.setSku(sku);
+        return p;
     }
 }

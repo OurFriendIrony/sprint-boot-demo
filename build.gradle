@@ -58,4 +58,3 @@ task deployLocal(dependsOn: ['assemble']) {
         }
     }
 }
-
